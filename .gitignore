@@ -5,3 +5,5 @@
 **/logs
 
 /src/poubelle
+
+**/test
