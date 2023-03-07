@@ -1,22 +1,8 @@
 // MUI slider component
 import React from 'react';
-import Slider, { SliderThumb, SliderValueLabelProps } from '@mui/material/Slider';
-// import useSlider from '@mui/base/useSlider';
+import Slider from '@mui/material/Slider';
+import Box from '@mui/material/Box'
 import { styled } from '@mui/material/styles';
-import Typography from '@mui/material/Typography';
-import Tooltip from '@mui/material/Tooltip';
-import Box from '@mui/material/Box';
-import questions from './questions';
-
-// function ValueLabelComponent(props) {
-//   const { children, value } = props;
-
-//   return (
-//     <Tooltip enterTouchDelay={0} placement="top" title={value}>
-//       {children}
-//     </Tooltip>
-//   );
-// }
 
 
 const QuizSlider = styled(Slider)({
@@ -62,27 +48,40 @@ const QuizSlider = styled(Slider)({
   })
   ;
 
-const QuizSliderApp = (props) => {
-  const { defaultValue, min, max, onChange } = props;
-
   
 
+const QuizSliderApp = (props) => {
+  const { defaultValue, min, max, onChange, onChangeCommitted, disabled, questions } = props;
+console.log(questions);
+
   return (
+    <>
+    
+  <Box display="flex" flexDirection="column" m={10}>
     <QuizSlider 
     valueLabelDisplay='auto'
     defaultValue={defaultValue}
     min={min}
     max={max}
     onChange={onChange}
+    onChangeCommitted={onChangeCommitted}
+    disabled={disabled}
+    questions={questions}
+
     />
-  )
+    
+  </Box>
+  </>
+    )
+  
 }
 
 QuizSliderApp.defaultProps = {
 
   defaultValue:50,
   min:1,
-  max:100
+  max:100,
+  disabled:false
 };
 
 export default QuizSliderApp;

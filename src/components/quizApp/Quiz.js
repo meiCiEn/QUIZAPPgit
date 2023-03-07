@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import QuizSliderApp from './QuizSliderApp';
-import AnswerText from '../../poubelle/AnswerText';
+
 
 
 
@@ -10,13 +10,16 @@ const Quiz = ( { showQuiz, question, questions, checkAnswer, answerText, setSlid
     const [ value, setValue ] = useState( 1 );
     const handleValueChange = ( event ) =>
     {
-        setValue( event.target.value );
-        console.log( { value } );
+        setValue( event.target.value )
         setSlider( value );
         checkAnswer();
-        console.log( answerText );
 
     };
+    const handleValueCommitted = (event) =>
+    {
+        console.log(value)
+    }
+
 
     return (
         <section style={ { display: `${ showQuiz ? 'block' : 'none' }` } }>
@@ -29,25 +32,28 @@ const Quiz = ( { showQuiz, question, questions, checkAnswer, answerText, setSlid
                 <div className="padding">
                     <p>Déplacez le curseur pour deviner, puis vérifiez la réponse.</p>
                 </div>
-                <div className="padding">
-                    <div>
-                    </div>
-
-                    {/* <QuizSlider className="padding"
-                        valueLabelDisplay='auto'
-                        defaultValue={ sliderDefault }
-                        onChange={ handleValueChange}
-                    /> */}
+                {/* Map sliders into separate array and only show the slider that's relevant to the question */}
+                {questions.map((item, index) => (
+                <div key={index} className="padding" style={ { display: `${ index===questionIndex ? 'block' : 'none' }` } }>
+                    
                     <QuizSliderApp
-                        min={ sliderMin }
-                        max={ sliderMax }
-                        defaultValue={ sliderDefault }
+
+                        min={ item.sliderMin }
+                        max={ item.sliderMax }
+                        defaultValue={ item.sliderMin }
                         onChange={ handleValueChange }
+                        onChangeCommitted={ handleValueCommitted }
+                        disabled={ showAnswer }
+                        
                     />
 
                     //TODO Disable slider when question answered
                     {/* <p>{ value }</p> */ }
                 </div>
+                )
+                )
+            }
+                
 
 
                 {

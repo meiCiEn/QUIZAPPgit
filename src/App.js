@@ -27,8 +27,9 @@ export default function App ()
   const [ showQuiz, setShowQuiz ] = useState( false );
   const [ showResult, setShowResult ] = useState( false );
 
+  console.log(questions);
 
-
+  
   // Set a Single Question
   useEffect( () =>
   {
@@ -171,6 +172,7 @@ export default function App ()
 
 
       />
+      
       {/* Result Page */ }
       <Result
         showResult={ showResult }
