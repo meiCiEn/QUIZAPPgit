@@ -113,22 +113,22 @@ const Quiz = ( { showQuiz, question, questions, checkAnswer, answerAssessment, a
                         ( questionIndex + 1 ) !== questions.length ?
                             <div className="flex gap-2 justify-center" >
                                 <div className="flex ">
-                                    <button className="inline-flex items-center justify-center px-8 py-4 font-semibold tracking-wide text-white bg-slate-900 hover:bg-slate-600 rounded-lg h-[60px] disabled:opacity-20" onClick={ showAnswerText } disabled={ !checkAnswer || !answer }>Afficher Réponse</button>
+                                    <button className="inline-flex items-center justify-center px-8 py-4 font-semibold tracking-wide text-white bg-slate-900 enabled:hover:bg-slate-600 rounded-lg h-[60px] disabled:opacity-20" onClick={ showAnswerText } disabled={ !checkAnswer || !answer || showAnswer }>Afficher Réponse</button>
                                 </div>
                                 <div className="flex">
-                                    <button className="inline-flex items-center justify-center px-8 py-4 font-semibold tracking-wide text-white bg-slate-900 hover:bg-slate-600 rounded-lg h-[60px] disabled:opacity-20" onClick={ nextQuestion } disabled={ !showAnswer }>Question Suivante</button>
+                                    <button className="inline-flex items-center justify-center px-8 py-4 font-semibold tracking-wide text-white bg-slate-900 enabled:hover:bg-slate-600 rounded-lg h-[60px] disabled:opacity-20" onClick={ nextQuestion } disabled={ !showAnswer }>Question Suivante</button>
                                 </div>
 
                             </div>
                             :
-                            <>
-                                <div className="">
-                                    <button className="inline-flex items-center justify-center px-8 py-4 font-semibold tracking-wide text-white bg-slate-900 hover:bg-slate-600 rounded-lg h-[60px] disabled:opacity-50" onClick={ showAnswerText } disabled={ !checkAnswer }>Afficher Réponse</button>
+                            <div className="flex gap-2 justify-center" >
+                                <div className="flex">
+                                    <button className="inline-flex items-center justify-center px-8 py-4 font-semibold tracking-wide text-white bg-slate-900 enabled:hover:bg-slate-600 rounded-lg h-[60px] disabled:opacity-20" onClick={ showAnswerText } disabled={ !checkAnswer || !answer || showAnswer}>Afficher Réponse</button>
                                 </div>
-                                <div className="">
-                                    <button className="inline-flex items-center justify-center px-8 py-4 font-semibold tracking-wide text-white bg-slate-900 hover:bg-slate-600 rounded-lg h-[60px] disabled:opacity-50" onClick={ gameOver } disabled={ !showAnswer }>Show Result</button>
+                                <div className="flex">
+                                    <button className="inline-flex items-center justify-center px-8 py-4 font-semibold tracking-wide text-white bg-slate-900 enabled:hover:bg-slate-600 rounded-lg h-[60px] disabled:opacity-20" onClick={ gameOver } disabled={ !showAnswer }>Show Result</button>
                                 </div>
-                            </>
+                            </div>
                     }
                     <div className="" style={ { display: `${ showAnswer ? 'block' : 'none' }` } }>
                         <p className="text-xl py-4 font-medium">{ answerAssessment }</p>
