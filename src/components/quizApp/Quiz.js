@@ -1,7 +1,7 @@
 
 import React, { useEffect } from 'react';
 import QuizSliderApp from './QuizSliderApp';
-import BlurredBackground from './../layout/BlurredBackground.js';
+import BlurredBackground from '../layouts/BlurredBackground.js';
 
 
 
