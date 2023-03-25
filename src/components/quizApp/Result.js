@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from "react-router-dom";
+import { refreshPage } from '../../utils/utils';
 
 const Result = ({ showResult, questions, marks, startAgain }) =>
 {
@@ -10,11 +12,12 @@ const Result = ({ showResult, questions, marks, startAgain }) =>
                     <br></br>
                     { `Fin de la partie ! Merci d'avoir joué :-)` }<br></br>
                 </h3><br></br>
-                <button onClick= 
-                    {startAgain}
+                <Link to="/"><button 
+                onClick= 
+                {startAgain}
                 >
                     Redémarrer
-                </button>
+                </button></Link>
             </div>
         </div>
         </section>

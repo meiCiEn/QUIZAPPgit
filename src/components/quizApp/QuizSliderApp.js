@@ -8,6 +8,7 @@ import { styled } from '@mui/material/styles';
 
 const QuizSlider = styled(Slider)({
 
+
     color: '#090088',
     height: 8,
     '& .MuiSlider-track': {
@@ -32,7 +33,7 @@ const QuizSlider = styled(Slider)({
       lineHeight: 1.2,
       fontSize: 14,
       background: 'unset',
-      padding: 10,
+      padding: 0,
       width: 80,
       height: 80,
       borderRadius: '50% 50% 50% 0',
@@ -43,7 +44,13 @@ const QuizSlider = styled(Slider)({
       '&.MuiSlider-valueLabelOpen': {
         transform: 'translate(50%, -100%) rotate(-45deg) scale(1)',
         backgroundColor: '#090088',
+        // '#090088', '#6b66b8',
+
       },
+      // '&.Mui-disabled':
+      // {
+      //   backgroundColor: '#6b66b8',
+      // },
       '& > *': {
         transform: 'rotate(45deg)',
       },
@@ -54,7 +61,7 @@ const QuizSlider = styled(Slider)({
   
 
 const QuizSliderApp = (props) => {
-  const { defaultValue, min, max, onChange, onChangeCommitted, disabled, questions, getAriaValueText, unit, valueLabelFormat, item, step } = props;
+  const { defaultValue, min, max, onChange, onChangeCommitted, disabled, questions, getAriaValueText, unit, valueLabelFormat, track, thumb, item, step } = props;
 // console.log(questions);
 
 const marks = [
@@ -72,7 +79,7 @@ const marks = [
   return (
     <>
     
-  <Box display="flex" flexDirection="column" m={10}>
+  <Box display="flex" flexDirection="column" mt={8}>
     <QuizSlider 
     valueLabelDisplay='on'
     defaultValue={defaultValue}
@@ -85,7 +92,10 @@ const marks = [
     getAriaValueText={getAriaValueText}
     marks={marks}
     unit={unit}
+    track={false}
     valueLabelFormat={valueLabelFormat}
+    // thumb={thumb}
+   
 
     />
     
